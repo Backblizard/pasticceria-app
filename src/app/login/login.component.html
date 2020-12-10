@@ -1,0 +1,21 @@
+<div class="container mt-3">
+    <h3>LOGIN</h3><br>
+    <div class="row">
+        <div class="col-sm-12">
+            <form>
+                <div class="form-group">
+                <label for="userForm">User</label>
+                <input name = "user" type="text" (keyup.enter)="userLogin()" class="form-control" [(ngModel)]="userUtente" id="userForm" required>
+                </div>
+                <div class="form-group">
+                <label for="passwordForm">Password</label>
+                <input name = "password" type="password" (keyup.enter)="userLogin()" class="form-control" [(ngModel)]="passwordUtente" id="passwordForm" required>
+                </div>
+                <div class="invalid-feedback">
+                    User o Password Errata!
+                </div><br>
+                <button type="button" (click)="userLogin()" class="btn btn-primary">Invia</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container mt-3">
+    <h3>Lista Ingredienti</h3><br>
+    <div *ngIf="dolceItem != undefined && dolceItem.listaIngredienti.length != 0" class="row">
+        <div class="col-sm-12" *ngFor="let section of getSection()">
+            <h4>{{section}}</h4>
+            <div *ngFor="let item of getItemFilterSection(section)">
+                <p *ngIf="item.quantita != undefined && item.unitaDiMisura != undefined">{{item.ingrediente.nome + ' ' + item.quantita + '' + item.unitaDiMisura}}</p>
+                <p *ngIf="item.quantita == undefined && item.unitaDiMisura != undefined">{{item.ingrediente.nome + ' ' + item.unitaDiMisura}}</p>
+                <p *ngIf="item.quantita != undefined && item.unitaDiMisura == undefined">{{item.ingrediente.nome + ' ' + item.quantita}}</p>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            
+        </div>
+    </div>
+    <div *ngIf="dolceItem != undefined && dolceItem.listaIngredienti.length == 0" class="row">
+        <p class="m-3">Ingredienti non disponibili!</p>
+    </div>
+</div>

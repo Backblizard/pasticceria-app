@@ -1,0 +1,15 @@
+<div class="container">
+  <button *ngIf="isLogged()" (click) = "showInserimento()" type="button" class="btn btn-success m-3">Inserisci</button>
+  <div *ngFor="let item of getListaVendita();let i = index" class="row m-3">
+    <div *ngIf="itemAging(i) > 0" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{item.dolce.nome}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Quantità: {{item.quantita}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Data: {{getDate(item.dataTimestamp)}}</h6>
+        <button (click) = "showDetail(i)" type="button" class="btn btn-info float-left">Dettagli</button>
+        <h2 *ngIf="itemAging(i) > 0" class="card-text float-right">{{itemAging(i)}}€</h2>
+        <h2 *ngIf="itemAging(i) > 0 && itemAging(i) != (item.quantita * item.dolce.prezzo)" class="card-text float-right mr-1"><del>{{item.quantita * item.dolce.prezzo}}€</del></h2>
+      </div>
+    </div>
+  </div>
+</div>
